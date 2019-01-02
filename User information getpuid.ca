@@ -1,0 +1,13 @@
+#include<sys/types.h> 
+#include<pwd.h> 
+#include<stdio.h>
+int main()
+{ struct passwd *p; 
+uid_t uid=0; 
+if((p = getpwuid(uid)) == NULL) 
+perror("getpwuid() error"); 
+else 
+{ printf("getpwuid returned the following name and directory for user ID %d:n", (int) uid); 
+printf("pw_name : %sn", p->pw_name); 
+printf("pw_dir : %dn", p->pw_dir); }
+return 0; } 
